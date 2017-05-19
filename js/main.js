@@ -19,9 +19,18 @@ $(document).ready(function(){
 
   //start: item button functionality
   var itemText = $('#item-input').val();
-  $('.list').append(itemText);
-  console.log(itemText);
+  //create a new li elem concatenating the itemText value
+  var $item = $('<li><span>' + itemText + '</span><i class="glyphicon glyphicon-remove"></i></li>');
+
+  //append the list item to the ul tag
+  $('.list').append($item);
+  console.log($item);
+
+
+
+
+
   //check this out
-  $('.list').html('<li>Do laundry</li>');
+  // $('.list').html('<li>Do laundry</li>');
 
 })
