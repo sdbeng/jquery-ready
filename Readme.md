@@ -124,4 +124,84 @@ Once again, add multiple list items in List Maker. After they are added, click o
 
 You did it! List Maker now works as intended!
 
-## 
+## Chaining methods
+Behaviors in jQuery can be chained together in series. For example, it's common to traverse the DOM and then apply a style or behavior to targeted elements, all with one line of code!
+
+$(document).ready(function() {
+  $('div.button').click(function() {
+    $(this).find('li').css('background-color', 'red');
+  });
+});
+In the example above, the .css() method is chained to the .find() method. When the div of class button is clicked, all descendant list items will change their background color to red.
+
+Visual methods that employ animation can be chained as well.
+
+$(document).ready(function() {
+  $('div.button').click(function() {
+    $(this).find('li').fadeOut(1000);
+  });
+});
+In the code above, after a div with the class button is clicked, all descendant list items will fade out over the course of one second.
+
+Chaining supports multiple effects linked in succession. For example, we can chain the .css() and .fadeOut() methods together, resulting in the line of code below.
+
+$(this).find('li').css('background-color', 'red').fadeOut(1000);
+In the method chain above, descendant list items will first change their color to red and then fade out over one second.
+Instructions
+1.
+Take a look at the following lines of code in main.js:
+
+var $parent = $(this).parent();
+$parent.remove();
+Although these two lines successfully work together to remove individual list items, we can shorten them to one line of code using chaining.
+
+Combine the two lines of code by chaining the .remove() method to the .parent() method. Remove all references to the $parent variable.
+
+## Add & Remove classes
+Earlier you learned about.css(), a method helpful for manipulating individual CSS properties.
+
+To set multiple CSS properties simultaneously, it's best to use the .addClass() and .removeClass() methods. These methods can add or remove a collection of CSS properties at once.
+
+/* CSS rule in a stylesheet 
+.highlight {
+  border: 1px solid orange;
+  background-color: yellow;
+}
+The example above sets CSS properties for elements with a class of highlight. This CSS rule can be added or removed with jQuery.
+
+// Adding class with jQuery
+$(document).ready(function() {
+  $('li').addClass('highlight');
+});
+In the example above, the .addClass() method is used to add the highlight class to all list items in the DOM. All of the list items will have an orange border and yellow background color.
+
+Adding (or removing) classes can be useful when linked to user actions (i.e. clicking a button, hovering over an element, etc.).
+1.
+Now that List Maker functions correctly, we can focus on styling parts of it.
+
+Open style.css and scroll through the file. Find the .button-hover CSS rule. This rule contains styling that we will conditionally add to an element. Specifically, we'll apply this styling to the + buttons when a user hovers over them.
+
+In main.js, start by selecting all divs that have a class of button. Add an event handler that responds to a "hover" event. Make sure to include a callback function as an argument, but leave its contents empty for now.
+
+This event handler should stand alone and be on the same indentation-level as the event handlers for #title-form .button and #item-form .button.
+Stuck? Get a hint
+2.
+Inside of the callback function, call the .addClass() method on the specific element being hovered over. Pass in the button-hover class you saw in style.css as an argument.
+Stuck? Get a hint
+3.
+Hover over either of the + buttons. What happens?
+
+The buttons change color on hover, but the change seems to be permanent (we added the class). It would seem that the next step would be to write jQuery that handles a removal of the class. This, however, would defeat the purpose of the hover event.
+
+Instead, let's fix this issue by calling a different method. Use your preferred search engine to search for the method that "toggles" a class. Once you find it, replace .addClass() with the method.
+
+Again, try finding the method by using your preferred search engine first. If you need help, then use the hint.
+Stuck? Get a hint
+4.
+Hover over either of the + buttons again. They should change in color when the cursor hovers over them and then revert back to normal when the cursor exits the button.
+
+It's possible to add this functionality with pure CSS using a :hover pseudo-selector. For the purposes of this lesson, however, we're deliberately keeping the event handling in main.js. There is no preferred method, so feel free to make this choice for yourself in your personal projects.
+
+Congratulations on completing List Maker!
+
+##

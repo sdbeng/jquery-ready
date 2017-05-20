@@ -59,7 +59,7 @@ h1 {
   width: 60px;
 }
 
-.button:hover {
+.button-hover {
   background-color: rgba(0, 129, 255, 0.95);
   cursor: pointer;
 }
