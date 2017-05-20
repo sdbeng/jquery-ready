@@ -26,7 +26,8 @@ $(document).ready(function(){
   $('.list').append($item);
   console.log($item);
 
-
+  //center h1 heading
+  $('h1').css("text-align", "center");
 
 
 
